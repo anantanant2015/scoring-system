@@ -1,8 +1,9 @@
 import EctoEnum
-defenum(InstrumentTypeEnum, :instrumenttype, [:physical_commodity, :company, :comment])
 
-defenum(UserTypeEnum, :usertype, [:trader, :researcher])
+defenum(InstrumentTypeEnum, ["physical_commodity", "company", "comment"])
 
-defenum(UserStatusEnum, :userstatus, [:verified, :not_verified, :not_applicable])
+defenum(UserTypeEnum, ["trader", "researcher"])
 
-defenum(RatingTypeEnum, :ratingtype, [:user, :instrument])
+defenum(UserStatusEnum, ["verified", "not_verified", "not_applicable"])
+
+defenum(RatingTypeEnum, ["user", "instrument"])
