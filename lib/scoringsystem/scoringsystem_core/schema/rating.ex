@@ -1,13 +1,13 @@
-defmodule Scoringsystem.Schema.Instrument do
+defmodule Scoringsystem.ScoringsystemCore.Rating do
   use Scoringsystem.Schema
   import Ecto.Changeset
 
-  @required [:description, :rating, :instrument_type]
+  @required [:type_uuid, :rating, :rating_type]
 
-  schema "instruments" do
-    field :description, :string
+  schema "ratings" do
+    field :type_uuid, :binary_id
     field :rating, :integer
-    field :instrument_type, InstrumentTypeEnum.type()
+    field :rating_type, RatingTypeEnum.type()
 
     timestamps()
   end

@@ -1,4 +1,4 @@
-defmodule Scoringsystem.Schema.User do
+defmodule Scoringsystem.ScoringsystemCore.User do
   use Scoringsystem.Schema
   import Ecto.Changeset
 
