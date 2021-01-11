@@ -4,3 +4,5 @@ defenum(InstrumentTypeEnum, :instrumenttype, [:physical_commodity, :company, :co
 defenum(UserTypeEnum, :usertype, [:trader, :researcher])
 
 defenum(UserStatusEnum, :userstatus, [:verified, :not_verified, :not_applicable])
+
+defenum(RatingTypeEnum, :ratingtype, [:user, :instrument])
