@@ -51,7 +51,7 @@ defmodule Scoringsystem.ScoringsystemCore do
   """
   def create_user(attrs \\ %{}) do
     %User{}
-    |> User.changeset(attrs)
+    |> User.create_changeset(attrs)
     |> Repo.insert()
   end
 
@@ -69,7 +69,7 @@ defmodule Scoringsystem.ScoringsystemCore do
   """
   def update_user(%User{} = user, attrs) do
     user
-    |> User.changeset(attrs)
+    |> User.update_changeset(attrs)
     |> Repo.update()
   end
 
@@ -99,7 +99,7 @@ defmodule Scoringsystem.ScoringsystemCore do
 
   """
   def change_user(%User{} = user) do
-    User.changeset(user, %{})
+    User.create_changeset(user, %{})
   end
 
   alias Scoringsystem.ScoringsystemCore.Instrument
@@ -132,6 +132,21 @@ defmodule Scoringsystem.ScoringsystemCore do
 
   """
   def get_instrument!(id), do: Repo.get!(Instrument, id)
+
+  def get_instrument_from_rating(%{type_uuid: type_uuid} = _rating) do
+    Repo.get(Instrument, type_uuid)
+  end
+
+  def update_instrument_from_rating(nil, %{type_uuid: _type_uuid} = _rating) do
+    {:ok, :rating_not_for_instrument}
+  end
+
+  def update_instrument_from_rating(instrument, %{type_uuid: type_uuid} = _rating) do
+    avg_rating = get_rating_avg(type_uuid)
+
+    instrument
+    |> update_instrument(%{"rating" => avg_rating})
+  end
 
   @doc """
   Creates a instrument.
@@ -200,50 +215,19 @@ defmodule Scoringsystem.ScoringsystemCore do
 
   alias Scoringsystem.ScoringsystemCore.Rating
 
-  @doc """
-  Returns the list of ratings.
-
-  ## Examples
-
-      iex> list_ratings()
-      [%Rating{}, ...]
-
-  """
-  def list_ratings do
-    Repo.all(Rating)
+  def get_rating_count(id) do
+    Rating
+    |> where([r], r.type_uuid == ^id)
+    |> select([r], count(r.type_uuid))
+    |> Repo.all()
   end
 
-  @doc """
-  Gets a single rating.
-
-  Raises `Ecto.NoResultsError` if the Rating does not exist.
-
-  ## Examples
-
-      iex> get_rating!(123)
-      %Rating{}
-
-      iex> get_rating!(456)
-      ** (Ecto.NoResultsError)
-
-  """
-  def get_rating!(id), do: Repo.get!(Rating, id)
-
-  @doc """
-  Gets a single rating.
-
-  Raises `Ecto.NoResultsError` if the Rating does not exist.
-
-  ## Examples
-
-      iex> get_rating!(123)
-      %Rating{}
-
-      iex> get_rating!(456)
-      ** (Ecto.NoResultsError)
-
-  """
-  def get_rating_avg(type_uuid), do: Repo.aggregate(Rating, :avg, :rating)
+  def get_rating_avg(type_uuid) do
+    Rating
+    |> where([r], r.type_uuid == ^type_uuid)
+    |> select([r], avg(r.rating))
+    |> Repo.one()
+  end
 
   @doc """
   Creates a rating.
@@ -257,44 +241,10 @@ defmodule Scoringsystem.ScoringsystemCore do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_rating(attrs \\ %{}) do
+  def create_rating(attrs) do
     %Rating{}
     |> Rating.changeset(attrs)
     |> Repo.insert()
-  end
-
-  @doc """
-  Updates a rating.
-
-  ## Examples
-
-      iex> update_rating(rating, %{field: new_value})
-      {:ok, %Rating{}}
-
-      iex> update_rating(rating, %{field: bad_value})
-      {:error, %Ecto.Changeset{}}
-
-  """
-  def update_rating(%Rating{} = rating, attrs) do
-    rating
-    |> Rating.changeset(attrs)
-    |> Repo.update()
-  end
-
-  @doc """
-  Deletes a rating.
-
-  ## Examples
-
-      iex> delete_rating(rating)
-      {:ok, %Rating{}}
-
-      iex> delete_rating(rating)
-      {:error, %Ecto.Changeset{}}
-
-  """
-  def delete_rating(%Rating{} = rating) do
-    Repo.delete(rating)
   end
 
   @doc """

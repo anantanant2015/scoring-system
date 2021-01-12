@@ -12,7 +12,7 @@ defmodule ScoringsystemWeb.Scoringsystem.InstrumentController do
     render(conn, "index.json", instruments: instruments)
   end
 
-  def create(conn, %{"instrument" => instrument_params}) do
+  def create(conn, instrument_params) do
     with {:ok, %Instrument{} = instrument} <-
            ScoringsystemCore.create_instrument(instrument_params) do
       conn
@@ -27,7 +27,7 @@ defmodule ScoringsystemWeb.Scoringsystem.InstrumentController do
     render(conn, "show.json", instrument: instrument)
   end
 
-  def update(conn, %{"uuid" => id, "instrument" => instrument_params}) do
+  def update(conn, %{"uuid" => id} = instrument_params) do
     instrument = ScoringsystemCore.get_instrument!(id)
 
     with {:ok, %Instrument{} = instrument} <-

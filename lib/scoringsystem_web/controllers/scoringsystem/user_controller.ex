@@ -26,10 +26,14 @@ defmodule ScoringsystemWeb.Scoringsystem.UserController do
     render(conn, "show.json", user: user)
   end
 
-  def update(conn, %{"uuid" => id, "user" => user_params}) do
+  def update(conn, %{"uuid" => id} = user_params) do
     user = ScoringsystemCore.get_user!(id)
 
-    with {:ok, %User{} = user} <- ScoringsystemCore.update_user(user, user_params) do
+    [rating_count] = ScoringsystemCore.get_rating_count(id)
+
+    updated_user_params = user_params |> Map.put("rating_count", rating_count)
+
+    with {:ok, %User{} = user} <- ScoringsystemCore.update_user(user, updated_user_params) do
       render(conn, "show.json", user: user)
     end
   end
