@@ -1,0 +1,437 @@
+{
+	"info": {
+		"_postman_id": "3916cddb-bde8-48ea-97c6-701f11d87586",
+		"name": "ScoringSystem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add researcher User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/users?name=user&user_type=researcher",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "user"
+						},
+						{
+							"key": "user_type",
+							"value": "researcher"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add researcher Rating",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/ratings?type_uuid=ef97e46e-74a5-4632-a166-d48635e27673&rating_provider=3488d0a2-75c3-4f06-9246-a47cd65ee7a7&rating=89&rating_type=user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"ratings"
+					],
+					"query": [
+						{
+							"key": "type_uuid",
+							"value": "ef97e46e-74a5-4632-a166-d48635e27673"
+						},
+						{
+							"key": "rating_provider",
+							"value": "3488d0a2-75c3-4f06-9246-a47cd65ee7a7"
+						},
+						{
+							"key": "rating",
+							"value": "89"
+						},
+						{
+							"key": "rating_type",
+							"value": "user"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add physical_commodity Instrument",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/instruments?description=instrument&rating=90&instrument_type=physical_commodity",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"instruments"
+					],
+					"query": [
+						{
+							"key": "description",
+							"value": "instrument"
+						},
+						{
+							"key": "rating",
+							"value": "90"
+						},
+						{
+							"key": "instrument_type",
+							"value": "physical_commodity"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add company Instrument",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/instruments?description=instrument&rating=90&instrument_type=company",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"instruments"
+					],
+					"query": [
+						{
+							"key": "description",
+							"value": "instrument"
+						},
+						{
+							"key": "rating",
+							"value": "90"
+						},
+						{
+							"key": "instrument_type",
+							"value": "company"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add comment Instrument",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/instruments?description=instrument&rating=90&instrument_type=comment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"instruments"
+					],
+					"query": [
+						{
+							"key": "description",
+							"value": "instrument"
+						},
+						{
+							"key": "rating",
+							"value": "90"
+						},
+						{
+							"key": "instrument_type",
+							"value": "comment"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add invalid Instrument",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/instruments?description=instrument&rating=90&instrument_type=invalid",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"instruments"
+					],
+					"query": [
+						{
+							"key": "description",
+							"value": "instrument"
+						},
+						{
+							"key": "rating",
+							"value": "90"
+						},
+						{
+							"key": "instrument_type",
+							"value": "invalid"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add trader Rating",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/ratings?type_uuid=6d6e3f88-23bc-467b-831f-8d0db92db8f1&rating_provider=3488d0a2-75c3-4f06-9246-a47cd65ee7a7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"ratings"
+					],
+					"query": [
+						{
+							"key": "type_uuid",
+							"value": "6d6e3f88-23bc-467b-831f-8d0db92db8f1"
+						},
+						{
+							"key": "rating_provider",
+							"value": "3488d0a2-75c3-4f06-9246-a47cd65ee7a7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add trader User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/users?name=user&user_type=trader",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "user"
+						},
+						{
+							"key": "user_type",
+							"value": "trader"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add invalid User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/users?name=user&user_type=invalid",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "user"
+						},
+						{
+							"key": "user_type",
+							"value": "invalid"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all instruments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/instruments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"instruments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/users/ef97e46e-74a5-4632-a166-d48635e27673",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users",
+						"ef97e46e-74a5-4632-a166-d48635e27673"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get invalid user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/users/123456789",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users",
+						"123456789"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
