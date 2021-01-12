@@ -9,7 +9,7 @@ defmodule ScoringsystemWeb.Router do
     pipe_through :api
 
     resources "/users", Scoringsystem.UserController, except: [:edit, :new]
-    resources "/ratings", Scoringsystem.RatingController, only: [:create]
+    resources "/ratings", Scoringsystem.RatingController, only: [:create, :show]
     resources "/instruments", Scoringsystem.InstrumentController, except: [:edit, :new]
   end
 end

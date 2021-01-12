@@ -11,6 +11,12 @@ defmodule ScoringsystemWeb.Scoringsystem.UserView do
   end
 
   def render("user.json", %{user: user}) do
-    %{id: user.uuid}
+    %{
+      id: user.uuid,
+      name: user.name,
+      rating: user.rating,
+      status: user.status,
+      user_type: user.user_type
+    }
   end
 end

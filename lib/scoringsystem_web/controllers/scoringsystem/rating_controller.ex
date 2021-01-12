@@ -21,4 +21,9 @@ defmodule ScoringsystemWeb.Scoringsystem.RatingController do
       |> render("show.json", rating: rating)
     end
   end
+
+  def show(conn, %{"id" => id}) do
+    rating = ScoringsystemCore.get_rating!(id)
+    render(conn, "show.json", rating: rating)
+  end
 end

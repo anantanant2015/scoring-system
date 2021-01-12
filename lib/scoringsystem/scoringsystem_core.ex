@@ -215,6 +215,17 @@ defmodule Scoringsystem.ScoringsystemCore do
 
   alias Scoringsystem.ScoringsystemCore.Rating
 
+  @doc """
+  Gets a single rating.
+  Raises `Ecto.NoResultsError` if the Rating does not exist.
+  ## Examples
+      iex> get_rating!(123)
+      %Rating{}
+      iex> get_rating!(456)
+      ** (Ecto.NoResultsError)
+  """
+  def get_rating!(id), do: Repo.get!(Rating, id)
+
   def get_rating_count(id) do
     Rating
     |> where([r], r.type_uuid == ^id)

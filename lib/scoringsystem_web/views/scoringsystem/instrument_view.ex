@@ -11,6 +11,11 @@ defmodule ScoringsystemWeb.Scoringsystem.InstrumentView do
   end
 
   def render("instrument.json", %{instrument: instrument}) do
-    %{id: instrument.uuid}
+    %{
+      id: instrument.uuid,
+      description: instrument.description,
+      rating: instrument.rating,
+      instrument_type: instrument.instrument_type
+    }
   end
 end

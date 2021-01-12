@@ -22,7 +22,7 @@ defmodule ScoringsystemWeb.Scoringsystem.InstrumentController do
     end
   end
 
-  def show(conn, %{"uuid" => id}) do
+  def show(conn, %{"id" => id}) do
     instrument = ScoringsystemCore.get_instrument!(id)
     render(conn, "show.json", instrument: instrument)
   end

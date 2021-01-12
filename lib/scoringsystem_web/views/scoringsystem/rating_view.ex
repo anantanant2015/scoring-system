@@ -11,6 +11,11 @@ defmodule ScoringsystemWeb.Scoringsystem.RatingView do
   end
 
   def render("rating.json", %{rating: rating}) do
-    %{id: rating.uuid}
+    %{
+      id: rating.uuid,
+      type_uuid: rating.type_uuid,
+      rating: rating.rating,
+      rating_type: rating.rating_type
+    }
   end
 end

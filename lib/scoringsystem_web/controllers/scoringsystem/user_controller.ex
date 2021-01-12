@@ -21,12 +21,12 @@ defmodule ScoringsystemWeb.Scoringsystem.UserController do
     end
   end
 
-  def show(conn, %{"uuid" => id}) do
+  def show(conn, %{"id" => id}) do
     user = ScoringsystemCore.get_user!(id)
     render(conn, "show.json", user: user)
   end
 
-  def update(conn, %{"uuid" => id} = user_params) do
+  def update(conn, %{"id" => id} = user_params) do
     user = ScoringsystemCore.get_user!(id)
 
     [rating_count] = ScoringsystemCore.get_rating_count(id)
